@@ -6,16 +6,20 @@ export default function useChromeToggle(key: string, fallback = false) {
     const [savedFlash, setSavedFlash] = React.useState<null | "saved" | "error">(null);
 
     React.useEffect(() => {
-        chrome.storage.local.get(key, res => {
-            setValue(Boolean(res[key] ?? fallback));
-            setLoaded(true);
+        if (!chrome?.storage) return;
+        chrome.storage.sync.get(key, async syncRes => {
+            if (syncRes[key] !== undefined) {
+                setValue(Boolean(syncRes[key]));
+                setLoaded(true);
+                return;
+            }
         });
     }, [key, fallback]);
 
     const save = React.useCallback(
         async (next: boolean) => {
             try {
-                await chrome.storage.local.set({[key]: next});
+                await chrome.storage.sync.set({[key]: next});
                 setValue(next);
                 setSavedFlash("saved");
                 setTimeout(() => setSavedFlash(null), 1200);

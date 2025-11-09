@@ -1,13 +1,12 @@
 import Badge from "@/components/Badge";
 import Card from "@/components/Card";
 import Switch from "@/components/Switch";
+import {ENABLE_KEY} from "@/content/facebook/constants";
 import useChromeToggle from "@/hooks/useChromeToggle";
 import "./App.css";
 
-const KEY = "fbHandlesEnabled";
-
 export default function App() {
-    const {value: enabled, loaded, save, savedFlash} = useChromeToggle(KEY);
+    const {value: enabled, loaded, save, savedFlash} = useChromeToggle(ENABLE_KEY);
 
     return (
         <main className="min-w-[320px] max-w-[420px] p-4 bg-bg text-text select-none">

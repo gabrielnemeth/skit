@@ -23,8 +23,9 @@ export default defineManifest({
     permissions: ["storage"],
     content_scripts: [
         {
-            js: ["src/content/main.tsx"],
-            matches: ["https://*/*"],
+            matches: ["https://www.facebook.com/*"],
+            js: ["src/content/facebook/index.ts"],
+            run_at: "document_idle",
         },
     ],
     web_accessible_resources: [
