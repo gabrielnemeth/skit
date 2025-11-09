@@ -27,4 +27,10 @@ export default defineManifest({
             matches: ["https://*/*"],
         },
     ],
+    web_accessible_resources: [
+        {
+            resources: ["**/*.woff2"],
+            matches: ["*://*/*"],
+        },
+    ],
 });
