@@ -1,0 +1,37 @@
+@theme {
+    /* Backgrounds */
+    --color-bg-default: #0b1220; /* deep navy background */
+    --color-bg-subtle: #111c43; /* elevated surface panels */
+    --color-bg-inset: #0b1220; /* inset containers */
+
+    /* Text colors */
+    --color-text-default: #e6e9f2;
+    --color-text-muted: #b3b9cc;
+    --color-text-inverted: #0b1220;
+
+    /* Brand */
+    --color-brand-50: #e6fffd;
+    --color-brand-100: #cffaf7;
+    --color-brand-200: #a5f2ec;
+    --color-brand-300: #76e7df;
+    --color-brand-400: #3edbd0;
+    --color-brand-500: #12cfc5;
+    --color-brand-600: #0cb3aa;
+    --color-brand-700: #0a928d;
+    --color-brand-800: #096e6b;
+    --color-brand-900: #064f4c;
+    --color-brand-950: #043534;
+
+    /* Surface layers */
+    --color-surface-50: #f6f8fb;
+    --color-surface-100: #edeff5;
+    --color-surface-200: #d9ddea;
+    --color-surface-300: #b9c0d9;
+    --color-surface-400: #8e99c5;
+    --color-surface-500: #5a69a5;
+    --color-surface-600: #3e4d85;
+    --color-surface-700: #2b3865;
+    --color-surface-800: #1b264a;
+    --color-surface-900: #111c43;
+    --color-surface-950: #0b1220;
+}
