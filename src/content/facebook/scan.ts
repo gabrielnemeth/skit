@@ -1,10 +1,8 @@
 import {qsa} from "@/shared/dom";
-import {MARK} from "./constants";
-import {parseHandle} from "./url";
-import {looksLikeNameAnchor} from "./guards";
 import {injectHandleBadge} from "./badge";
-
-const FB_LINK_SEL = 'a[href^="https://www.facebook.com/"]';
+import {LINK_SELECTOR, MARK} from "./constants";
+import {looksLikeNameAnchor} from "./guards";
+import {parseHandle} from "./url";
 
 export function injectIfEligible(el: Element) {
     if (!(el instanceof HTMLAnchorElement)) return;
@@ -20,5 +18,5 @@ export function injectIfEligible(el: Element) {
 }
 
 export function scan(root: ParentNode) {
-    qsa<HTMLAnchorElement>(root, FB_LINK_SEL).forEach(injectIfEligible);
+    qsa<HTMLAnchorElement>(root, LINK_SELECTOR).forEach(injectIfEligible);
 }

@@ -2,6 +2,7 @@ import {rafIdle} from "@/shared/dom";
 import {cleanupBadges} from "./badge";
 import {observeDom, observeSpa, Disposer} from "./observe";
 import {scan} from "./scan";
+import {getDialogScope, getMainScope} from "@/shared/dom-scope";
 
 export class Controller {
     private connected = false;
@@ -11,9 +12,7 @@ export class Controller {
     connect() {
         if (this.connected) return;
         this.connected = true;
-
-        // initial scan
-        scan(document.body);
+        this.scanScopes();
 
         // observers
         this.disposers.push(
@@ -35,7 +34,15 @@ export class Controller {
         this.pending = true;
         rafIdle(() => {
             this.pending = false;
-            scan(document.body);
+            this.scanScopes();
         });
+    }
+
+    private scanScopes() {
+        const main = getMainScope();
+        const dialog = getDialogScope();
+        if (!main) return;
+        scan(main);
+        if (dialog) scan(dialog);
     }
 }

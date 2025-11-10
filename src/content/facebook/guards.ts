@@ -1,4 +1,4 @@
-import {MARK, TIME_HINTS} from "./constants";
+import {MARK} from "./constants";
 
 export function looksLikeNameAnchor(a: HTMLAnchorElement): boolean {
     if (!a || a.hasAttribute(MARK)) return false;
@@ -16,7 +16,6 @@ export function looksLikeNameAnchor(a: HTMLAnchorElement): boolean {
     const txt = (a.textContent || "").trim();
     if (!txt || txt.length < 2) return false;
     if (/^https?:\/\//i.test(txt)) return false;
-    if (/^\d+[\s\.]?/.test(txt) && TIME_HINTS.test(txt)) return false;
     if (!/[A-Za-zÀ-ž]/.test(txt)) return false;
 
     return true;
