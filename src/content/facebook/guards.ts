@@ -1,6 +1,6 @@
 import {MARK, TIME_HINTS} from "./constants";
 
-export function looksLikePersonNameAnchor(a: HTMLAnchorElement): boolean {
+export function looksLikeNameAnchor(a: HTMLAnchorElement): boolean {
     if (!a || a.hasAttribute(MARK)) return false;
 
     // common FB containers
